@@ -43,9 +43,9 @@ $result1 = mysqli_query($connect, $query);
             </div>
             <hr>
             <div class="list-group">
-<a href="trainer.php" class="list-group-item active">Trainer</a>
-<a href="trainer.php" class="list-group-item active">Trainer details</a>             <a href="trainer.php" class="list-group-item active">Add new Trainer</a>
-         
+              <a href="trainer.php" class="list-group-item active">Trainer</a>
+              <a href="trainer.php" class="list-group-item active">Trainer details</a>             
+              <a href="trainer.php" class="list-group-item active">Add new Trainer</a>
             </div>      
             
         </div>
