@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 23, 2017 at 08:01 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Host: 127.0.0.1
+-- Generation Time: Mar 25, 2024 at 08:28 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,9 +31,9 @@ CREATE TABLE `doctorapp` (
   `fname` varchar(40) NOT NULL,
   `lname` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `contact` varchar(40) NOT NULL,
-  `docapp` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `contact` varchar(25) NOT NULL,
+  `docapp` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `doctorapp`
@@ -47,7 +46,9 @@ INSERT INTO `doctorapp` (`fname`, `lname`, `email`, `contact`, `docapp`) VALUES
 ('Raman', 'kumar', 'raman@gmail.com', '204', '103'),
 ('Aadarsh', 'thakur', 'thakur@gmail.com', '205', '103'),
 ('Rahul', 'kumar', 'rahul@gmail.com', '206', '102'),
-('Sanjeev', 'Verma', 'verma12@gmail.com', '207', '103');
+('Sanjeev', 'Verma', 'verma12@gmail.com', '207', '103'),
+('Likith', 'D ', 'likith@gmail.com', '208', '105'),
+('Vikram', 'Mv', 'Vicky56@gmail.com', '209', '102');
 
 -- --------------------------------------------------------
 
@@ -58,7 +59,7 @@ INSERT INTO `doctorapp` (`fname`, `lname`, `email`, `contact`, `docapp`) VALUES
 CREATE TABLE `logintb` (
   `username` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `logintb`
@@ -70,68 +71,71 @@ INSERT INTO `logintb` (`username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Package`
+-- Table structure for table `package`
 --
 
-CREATE TABLE `Package` (
+CREATE TABLE `package` (
   `Package_id` varchar(40) NOT NULL,
   `Package_name` varchar(40) NOT NULL,
   `Amount` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `Package`
+-- Dumping data for table `package`
 --
 
-INSERT INTO `Package` (`Package_id`, `Package_name`, `Amount`) VALUES
-('121', 'preliminary', 800),
+INSERT INTO `package` (`Package_id`, `Package_name`, `Amount`) VALUES
+('121', 'Hypertrophy', 800),
 ('122', 'Wt. gain', 1500),
 ('123', 'Wt.loss', 1000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Payment`
+-- Table structure for table `payment`
 --
 
-CREATE TABLE `Payment` (
+CREATE TABLE `payment` (
   `Payment_id` int(10) NOT NULL,
   `Amount` int(20) NOT NULL,
   `customer_id` varchar(20) NOT NULL,
-  `payment_type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `payment_type` varchar(20) NOT NULL,
+  `customer_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `Payment`
+-- Dumping data for table `payment`
 --
 
-INSERT INTO `Payment` (`Payment_id`, `Amount`, `customer_id`, `payment_type`) VALUES
-(301, 1500, '201', 'cash'),
-(302, 800, '202', 'card'),
-(303, 1000, '203', 'cheque'),
-(304, 1500, '204', 'cash');
+INSERT INTO `payment` (`Payment_id`, `Amount`, `customer_id`, `payment_type`, `customer_name`) VALUES
+(301, 1500, '201', 'cash', 'likith'),
+(302, 800, '202', 'card', 'bharath'),
+(303, 1000, '203', 'cheque', 'goutham'),
+(304, 1500, '204', 'cash', 'harsha'),
+(305, 900, '206', 'cash', 'ankith');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Trainer`
+-- Table structure for table `trainer`
 --
 
-CREATE TABLE `Trainer` (
+CREATE TABLE `trainer` (
   `Trainer_id` int(20) NOT NULL,
   `Name` varchar(40) NOT NULL,
   `phone` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `Trainer`
+-- Dumping data for table `trainer`
 --
 
-INSERT INTO `Trainer` (`Trainer_id`, `Name`, `phone`) VALUES
+INSERT INTO `trainer` (`Trainer_id`, `Name`, `phone`) VALUES
 (101, 'Rakesh', 12365489),
 (102, 'Ravi', 21365789),
 (103, 'wasim', 123564789),
-(104, 'Sameer', 12536987);
+(104, 'Sameer', 12536987),
+(105, 'Goku', 8908764);
 
 --
 -- Indexes for dumped tables
@@ -144,21 +148,21 @@ ALTER TABLE `doctorapp`
   ADD PRIMARY KEY (`contact`);
 
 --
--- Indexes for table `Package`
+-- Indexes for table `package`
 --
-ALTER TABLE `Package`
+ALTER TABLE `package`
   ADD PRIMARY KEY (`Package_id`);
 
 --
--- Indexes for table `Payment`
+-- Indexes for table `payment`
 --
-ALTER TABLE `Payment`
+ALTER TABLE `payment`
   ADD PRIMARY KEY (`Payment_id`);
 
 --
--- Indexes for table `Trainer`
+-- Indexes for table `trainer`
 --
-ALTER TABLE `Trainer`
+ALTER TABLE `trainer`
   ADD PRIMARY KEY (`Trainer_id`);
 COMMIT;
 

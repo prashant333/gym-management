@@ -23,69 +23,54 @@ $result1 = mysqli_query($connect, $query);
 
 ?>
 <html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  </head>
-  <body>
+<body>
       
    
-       
- <div class="jumbotron" style="border-radius:0;background:url('images/3.jpg');background-size:cover;height:400px;"></div>
-   <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="list-group">
-                <a href="" class="list-group-item active"
-                   >Members</a>
-                <a href="trainer_details.php" class="list-group-item">Member details</a>
-                <a href="package.php" class="list-group-item">Package details</a>
-                <a href="payment.php" class="list-group-item">Payments</a>
+  <div style="border-radius: 0; background: url('images/3.jpg'); background-size: cover; height: 400px;"></div>
+<div style="margin: 0 auto; max-width: 1200px;">
+    <div style="display: flex;">
+        <div style="flex: 1; padding: 15px; box-sizing: border-box;">
+            <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                <a href="#" style="display: block; background-color: #3498DB; color: #FFFFFF; padding: 10px; text-decoration: none;">Members</a>
+                <a href="trainer_details.php" style="display: block; padding: 10px; text-decoration: none;">Member details</a>
+                <a href="package.php" style="display: block; padding: 10px; text-decoration: none;">Package details</a>
+                <a href="payment.php" style="display: block; padding: 10px; text-decoration: none;">Payments</a>
             </div>
-            <hr>
-            <div class="list-group">
-              <a href="trainer.php" class="list-group-item active">Trainer</a>
-              <a href="trainer.php" class="list-group-item active">Trainer details</a>             
-              <a href="trainer.php" class="list-group-item active">Add new Trainer</a>
-            </div>      
-            
+            <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+                <a href="trainer.php" style="display: block; background-color: #3498DB; color: #FFFFFF; padding: 10px; text-decoration: none;">Trainer</a>
+                <a href="trainer.php" style="display: block; padding: 10px; text-decoration: none;">Trainer details</a>
+                <a href="trainer.php" style="display: block; padding: 10px; text-decoration: none;">Add new Trainer</a>
+            </div>
         </div>
-            <div class="col-md-8">
-            <div class="card">
-                
-     <div class="card-body" style="background-color:#3498DB;color:FFFFFF;">
+        <div style="flex: 2; padding: 15px; box-sizing: border-box;">
+            <div style="background-color: #3498DB; color: #FFFFFF; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
                 <h3>Register new members</h3>
-                </div> 
-                <div class="card-body"></div>
-                <form class="form-group" action="func.php" method="post">
-                <label>first name:</label>
-<input type="text" name="fname" class="form-control"><br>
-                    <label>last name:</label>
-<input type="text" name="lname" class="form-control"><br> 
- <label>email</label>
-                    <input type="text" name="email" class="form-control"><br>
-                    <label>Member ID</label>
-<input type="text" name="contact" class="form-control"><br>        
- <label>Trainer </label> 
- <select class="form-control" name="docapp">
-
-            <?php while($row1 = mysqli_fetch_array($result1)):;?>
-
-            <option value="<?php echo $row1[0];?>"><?php echo $row1[1];?></option>
-
-            <?php endwhile;?>
-
-        </select>
-        <br>
-                                        
-  <input type="submit" class="btn btn-primary" name="pat_submit" value="Register">                  <a href="func.php" class="btn btn-light"></a>
-                    
-                    
+            </div>
+            <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+                <form style="max-width: 400px; margin: 0 auto;" action="func.php" method="post">
+                    <label for="fname">First name:</label>
+                    <input type="text" name="fname" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+                    <label for="lname">Last name:</label>
+                    <input type="text" name="lname" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+                    <label for="contact">Member ID:</label>
+                    <input type="text" name="contact" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+                    <label for="docapp">Trainer:</label>
+                    <select name="docapp" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;">
+                        <?php while ($row1 = mysqli_fetch_array($result1)):;?>
+                            <option value="<?php echo $row1[0];?>"><?php echo $row1[1];?></option>
+                        <?php endwhile;?>
+                    </select>
+                    <br>
+                    <input type="submit" name="pat_submit" value="Register" style="background-color: #3498DB; color: #FFFFFF; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">
+                    <a href="func.php" style="background-color: #FFFFFF; color: #3498DB; padding: 10px; border: 1px solid #3498DB; border-radius: 5px; text-decoration: none; display: inline-block; margin-left: 10px;">Cancel</a>
                 </form>
-                </div>
-      </div>
-       </div>
-      <div class="col-md-1"></div>
-      </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <header>
  <nav>
      <div class="main-wrapper">
@@ -115,8 +100,6 @@ $result1 = mysqli_query($connect, $query);
 
 </header>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
      </body>
     
 </html>

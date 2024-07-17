@@ -1,21 +1,36 @@
 <?php
 $con=mysqli_connect("localhost","root","","loginsystem");
-if(isset($_POST['login_submit'])){
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-	$query="select * from logintb where username='$username' and password='$password'";
-	$result=mysqli_query($con,$query);
-	if(mysqli_num_rows($result)==1)
-	{
-		header("Location:admin-panel.php");
-	
+session_start(); // Start the session
+
+// Assuming $con is your database connection
+
+if (isset($_POST['login_submit'])) {
+    // Get username and password from the form
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Sanitize user input to prevent SQL injection
+    $username = mysqli_real_escape_string($con, $username);
+    $password = mysqli_real_escape_string($con, $password);
+
+    // Hash the password for secure storage and comparison
+    $hashed_password = md5($password); // This is just for demonstration, use a secure hashing algorithm like bcrypt
+
+    // Query to check if username and hashed password match
+    $query = "SELECT * FROM logintb WHERE username='$username' AND password='$hashed_password'";
+    $result = mysqli_query($con, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+        // Authentication successful
+        $_SESSION['username'] = $username;
+        header("Location: admin-panel.php"); // Redirect to admin panel
+        exit();
+    } else {
+        // Authentication failed
+        echo "<script>alert('Invalid username or password')</script>";
+        echo "<script>window.open('admin-login.php','_self')</script>";
+    }
 }
-	else
-    {
-        echo "<script>alert('error login')</script>";
-        echo "<script>window.open('admin-panel.php','_self')</script>";
-    }
-    }
 if(isset($_POST['pat_submit']))
 {
     $fname=$_POST['fname'];
@@ -24,7 +39,7 @@ if(isset($_POST['pat_submit']))
     $contact=$_POST['contact'];
     $docapp=$_POST['docapp'];
     $query="insert into doctorapp(fname,lname,email,contact,docapp)values('$fname','$lname','$email','$contact','$docapp')";
-     $result=mysqli_query($con,$query);
+    $result=mysqli_query($con,$query);
     if($result)
     {
       echo "<script>alert('Member added.')</script>";
@@ -89,8 +104,7 @@ function get_package(){
         echo"<tr>
         <td>$Package_id</td>
         <td>$Package_name</td>
-            <td>$Amount</td>
-            
+        <td>$Amount</td>
         </tr>";
 
     }
@@ -106,7 +120,7 @@ function get_trainer(){
         echo"<tr>
         <td>$Trainer_id</td>
         <td>$Name</td>
-            <td>$phone</td>
+        <td>$phone</td>
             
         </tr>";
 
