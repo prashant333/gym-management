@@ -3,67 +3,63 @@
 <html>
 <head>
 	<title>Members details</title>
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
 <div class="jumbotron" style="background: url('images/2.jpg') no-repeat;background-size: cover;height: 300px;"></div>	
+<div style="background-color: #3498DB; color: #ffffff; padding: 10px 100px;">
+    <div style="display: flex; align-items: center;">
+        <div style="flex: 0 0 10%;">
+            <a href="admin-panel.php" style="background-color: #ffffff; color: #3498DB; padding: 10px; text-decoration: none; display: inline-block;">Go Back</a>
+    </div>
+        <div style="flex: 0 0 80%; text-align: center;">
+            <h3 style="margin: 0;">Payment Details</h3>
+        </div>
+    </div>
+</div>
 
- <div class="container">
-<div class="card">
-     <div class="card-body" style="background-color:#3498DB;color:#ffffff;">
-         <div class="row">
-             <div class="col-md-1">
-    <a href="admin-panel.php" class="btn btn-light ">Go Back</a>
-             </div>
-             <div class="col-md-3"><h3>Payment Details</h3></div>
-             <div class="col-md-8">
-         <form class="form-group" action="patient_search.php" method="post">
-          <div class="row">
-              
-                 </form></div></div></div>
-     <div class="card-body" style="background-color:#3498DB;color:#ffffff;">
-         <div class="card-body">
-    <table class="table table-hover">
-        <thead>
-     <tr>
-            <th>Payment ID </th>
-            <th>Amount</th>
-            <th>Payment Type</th>
-            <th>Customer ID</th>
-            <th>Customer Name</th>
-         
-        </tr>   
-        </thead>
-        
-        <tbody>
-          <?php get_payment(); ?>
-        </tbody>
-    </table>
-    <div class="card-body" style="background-color:#3498DB;color:FFFFFF;">
-                <h3>Make new Payment</h3>
-                </div> 
-                <div class="card-body"></div>
-                <form class="form-group" action="func.php" method="post">
-                <label>Payment ID</label>
-<input type="text" name="Payment_id" class="form-control"><br>
- 
-                    <label>Amount</label>
-                    <input type="text" name="Amount" class="form-control"><br>
-                    <label>Customer ID</label>
-                    <input type="text" name="customer_id" class="form-control"><br>
-                    <label>Customer Name</label>
-                    <input type="text" name="customer_name" class="form-control"><br>
-                    <label>Payment Type</label>
-                    
-<input type="text" name="payment_type" class="form-control"><br> 
-<input type="submit" class="btn btn-primary" name="pay_submit" value="PAY">
-     </div>
+    <div style="background-color:#3498DB; color:#ffffff; padding: 20px; width: 100%; box-sizing: border-box;">
+        <div style="background-color:#3498DB; color:#ffffff;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Payment ID</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Amount</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Payment Type</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Customer ID</th>
+                        <th style="padding: 8px; border-bottom: 1px solid #ddd;">Customer Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php get_payment(); ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-    </div>
-    
+</div>
+<div style="background-color: #3498DB; color: #FFFFFF; padding: 20px;">
+    <h3 style="margin-bottom: 20px;">Make new Payment</h3>
+    <form action="func.php" method="post" style="margin-bottom: 20px;">
+        <label style="margin-bottom: 5px;">Payment ID</label><br>
+        <input type="text" name="Payment_id" style="width: 100%; padding: 8px; margin-bottom: 10px;" required><br>
+
+        <label style="margin-bottom: 5px;">Amount</label><br>
+        <input type="text" name="Amount" style="width: 100%; padding: 8px; margin-bottom: 10px;" required><br>
+
+        <label style="margin-bottom: 5px;">Customer ID</label><br>
+        <input type="text" name="customer_id" style="width: 100%; padding: 8px; margin-bottom: 10px;" required><br>
+
+        <label style="margin-bottom: 5px;">Customer Name</label><br>
+        <input type="text" name="customer_name" style="width: 100%; padding: 8px; margin-bottom: 10px;" required><br>
+
+        <label style="margin-bottom: 5px;">Payment Type</label><br>
+        <input type="text" name="payment_type" style="width: 100%; padding: 8px; margin-bottom: 10px;" required><br> 
+
+        <input type="submit" name="pay_submit" value="PAY" style="background-color: #007BFF; color: #FFFFFF; padding: 10px 20px; border: none; cursor: pointer;">
+    </form>
+</div>
+
+</div>
+
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    </div>
-    </body>
 </html>

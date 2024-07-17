@@ -3,59 +3,62 @@
 <html>
 <head>
 	<title>Members details</title>
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
-<div class="jumbotron" style="background: url('images/2.jpg') no-repeat;background-size: cover;height: 300px;"></div>	
+<div style="background: url('images/2.jpg') no-repeat; background-size: cover; height: 300px;"></div>
 
- <div class="container">
-<div class="card">
-     <div class="card-body" style="background-color:#3498DB;color:#ffffff;">
-         <div class="row">
-             <div class="col-md-1">
-    <a href="admin-panel.php" class="btn btn-light ">Go Back</a>
-             </div>
-             <div class="col-md-3"><h3> Trainer Information</h3></div>
-             <div class="col-md-8">
-         <form class="form-group" action="patient_search.php" method="post">
-          <div class="row">
-   
-                         
-                 </form></div></div></div>
-     <div class="card-body" style="background-color:#3498DB;color:#ffffff;">
-         <div class="card-body">
-    <table class="table table-hover">
-        <thead>
-     <tr>
-            <th>Trainer ID</th>
-            <th>Name</th>
-         <th>Phone</th>
-         
-        </tr>   
-        </thead>
-        <tbody>
-          <?php get_trainer(); ?>
-        </tbody>
-    </table>
-    <div class="card-body" style="background-color:#3498DB;color:FFFFFF;">
-                <h3>Register new Trainer</h3>
-                </div> 
-                <div class="card-body"></div>
-                <form class="form-group" action="func.php" method="post">
-                <label>Trainer ID</label>
-<input type="text" name="Trainer_id" class="form-control"><br>
- <label>Name</label>
-                    <input type="text" name="Name" class="form-control"><br>
-                    <label>Phone</label>
-<input type="text" name="phone" class="form-control"><br> 
-<input type="submit" class="btn btn-primary" name="tra_submit" value="Register">
-     </div>
+<div style="margin: 0 auto; max-width: 1200px;">
+    <div style="border: 1px solid #ccc; border-radius: 5px;">
+    <div style="background-color: #3498DB; color: #ffffff; padding: 10px 100px; display: flex;">
+    <div style="flex: 0 0 10%;">
+        <a href="admin-panel.php" style="background-color: #ffffff; color: #3498DB; padding: 10px; text-decoration: none; display: inline-block;">Go Back</a>
     </div>
+    <div style="flex: 0 0 80%; text-align: center;">
+            <h3 style="margin: 0;">Trainer Details</h3>
+        </div>
+        <form action="patient_search.php" method="post" class="form-group">
+            <!-- Your form content goes here -->
+        </form>
+</div>
+
+<div style="background-color: #3498DB; color: #ffffff; padding: 10px 100px;">
+    <div style="padding: 10px;">
+        <table style="width: 100%; border-collapse: collapse; border-spacing: 0;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ffffff; padding: 10px;">Trainer ID</th>
+                    <th style="border: 1px solid #ffffff; padding: 10px;">Name</th>
+                    <th style="border: 1px solid #ffffff; padding: 10px;">Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php get_trainer(); ?>
+            </tbody>
+        </table>
     </div>
-    
+</div>
+
+
+        <div style="background-color: #3498DB; color: #ffffff; padding: 10px;">
+            <div style="padding: 10px;">
+                <h3>Register New Trainer</h3>
+                <form action="func.php" method="post" class="form-group">
+                    <label for="Trainer_id">Trainer ID</label>
+                    <input type="text" name="Trainer_id" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;" class="form-control">
+                    <label for="Name">Name</label>
+                    <input type="text" name="Name" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;" class="form-control">
+                    <label for="phone">Phone</label>
+                    <input type="text" name="phone" style="width: 100%; box-sizing: border-box; margin-bottom: 10px;" class="form-control">
+                    <input type="submit" name="tra_submit" style="background-color: #007BFF; color: #FFFFFF;; padding: 10px; border: none; border-radius: 5px; cursor: pointer;" value="Register">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
     </div>
     </body>
 </html>
